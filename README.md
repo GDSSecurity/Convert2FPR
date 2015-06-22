@@ -16,4 +16,4 @@ static{
     formats.put("findbugs","com/gds/convert2fpr/findbugs/fvdl.xsl");
 }
  
-In order to extend the tool to support further input formats, we need to include a new XSL file and add just one line to the above code for each added XSL stylesheet.
+In order to extend the tool to support further input formats, only a new XSL file and one additional line in the above code for each added XSL stylesheet are required.
