@@ -1,6 +1,8 @@
 /*
  *  Gotham Digital Science LLC
  *  @author Andrea Scaduto
+ *  @Email ascaduto@gdssecurity.com
+ *  @Blogpost https://blog.gdssecurity.com/labs/2015/6/13/converting-findbugs-xml-to-hp-fortify-sca-fpr.html
   / ___|___  _ ____   _____ _ __| |_|___ \|  ___|  _ \|  _ \ 
  | |   / _ \| '_ \ \ / / _ \ '__| __| __) | |_  | |_) | |_) |
  | |__| (_) | | | \ V /  __/ |  | |_ / __/|  _| |  __/|  _ < 
