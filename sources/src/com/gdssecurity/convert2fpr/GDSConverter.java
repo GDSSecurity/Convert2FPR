@@ -25,8 +25,13 @@ public class GDSConverter {
 	static{
 		//for each input format add an entry in the availableFormats map pointing to XSL file
 		availableFormats.put("findbugs", "com/gdssecurity/convert2fpr/findbugs/fvdl.xsl");
+        availableFormats.put("findbugs", "com/gdssecurity/convert2fpr/findbugs-fast/fvdl.xsl");
+        availableFormats.put("eslint", "com/gdssecurity/convert2fpr/eslint/fvdl.xsl");
+
 		//add an entry for the correspondent finding descriptions file
 		availableMessages.put("findbugs", "com/gdssecurity/convert2fpr/findbugs/messages.xml");
+        availableMessages.put("findbugs-fast", "com/gdssecurity/convert2fpr/findbugs-fast/messages.xml");
+
 	}
 
 	private void run(String format, String sourceFile, String messages){
