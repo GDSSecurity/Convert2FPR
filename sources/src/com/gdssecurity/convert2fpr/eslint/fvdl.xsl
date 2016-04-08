@@ -16,7 +16,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <Label></Label>
     <BuildID></BuildID>
     <NumberFiles>48</NumberFiles>
-    <SourceBasePath>/Users/rgutierrez/Projects/vApp/source_no_SC</SourceBasePath>
+    <SourceBasePath></SourceBasePath>
     <ScanTime value="35"/>
   </Build>
 
