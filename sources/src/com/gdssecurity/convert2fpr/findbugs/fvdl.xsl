@@ -10,7 +10,7 @@
 			select="BugCollection" />
 		<xsl:variable name="var5_resultof_cast" as="xs:integer"
 			select="xs:integer('1')" />
-		<xsl:variable name="var_BugInstances" select="$var2_BugCollection/BugInstance"/>
+		<xsl:variable name="var_BugInstances" select="$var2_BugCollection/BugInstance[@category='SECURITY']"/>
 		<FVDL xmlns="xmlns://www.fortifysoftware.com/schema/fvdl"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3"
 			xsi:type="FVDL">
