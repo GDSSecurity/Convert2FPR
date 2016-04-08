@@ -1,11 +1,14 @@
 /*
  *  Gotham Digital Science LLC
  *  @author Andrea Scaduto
+ *  @Email ascaduto@gdssecurity.com - andreascaduto@me.com
+ *  @Blogpost https://blog.gdssecurity.com/labs/2015/6/13/converting-findbugs-xml-to-hp-fortify-sca-fpr.html
+
   / ___|___  _ ____   _____ _ __| |_|___ \|  ___|  _ \|  _ \ 
  | |   / _ \| '_ \ \ / / _ \ '__| __| __) | |_  | |_) | |_) |
  | |__| (_) | | | \ V /  __/ |  | |_ / __/|  _| |  __/|  _ < 
   \____\___/|_| |_|\_/ \___|_|   \__|_____|_|   |_|   |_| \_\
-                                                             
+                                                          
 */
 
 package com.gdssecurity.convert2fpr;
@@ -38,11 +41,13 @@ public class XMLTransformer {
 	private static final String FORTIFY_AUDIT_FILENAME = "audit.fvdl";
 	private static final String TMP_FILE = "tmp.xml";
 	private static final String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
-
-	protected File applyTransformation(String xmlSource, String xsl, String messages) throws ParserConfigurationException, SAXException, IOException, TransformerException {
+	
+	
+	protected File applyTransformation(String xmlSource, String xsl, String messages, String format) throws ParserConfigurationException, SAXException, IOException, TransformerException {
 		String sourceFile = xmlSource;
 		if(messages!=null){
-			mergeXML(xmlSource, messages);
+			if(format.equals("findbugs")||format.equals("findbugs-fast"))	
+				mergeFindbugsXML(xmlSource, messages);
 			sourceFile = TMP_FILE;
 		}
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -66,7 +71,7 @@ public class XMLTransformer {
 		return outputAuditFile;
 	}
 	
-	protected void mergeXML(String xmlSource, String messages) throws ParserConfigurationException, SAXException, IOException{
+	protected void mergeFindbugsXML(String xmlSource, String messages) throws ParserConfigurationException, SAXException, IOException{
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		dbFactory.setFeature(FEATURE, true);
 		DocumentBuilder builder = dbFactory.newDocumentBuilder();

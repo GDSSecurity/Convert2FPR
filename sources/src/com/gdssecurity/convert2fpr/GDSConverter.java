@@ -3,6 +3,7 @@
  *  @author Andrea Scaduto
  *  @Email ascaduto@gdssecurity.com
  *  @Blogpost https://blog.gdssecurity.com/labs/2015/6/13/converting-findbugs-xml-to-hp-fortify-sca-fpr.html
+ 
   / ___|___  _ ____   _____ _ __| |_|___ \|  ___|  _ \|  _ \ 
  | |   / _ \| '_ \ \ / / _ \ '__| __| __) | |_  | |_) | |_) |
  | |__| (_) | | | \ V /  __/ |  | |_ / __/|  _| |  __/|  _ < 
@@ -25,13 +26,13 @@ public class GDSConverter {
 	static{
 		//for each input format add an entry in the availableFormats map pointing to XSL file
 		availableFormats.put("findbugs", "com/gdssecurity/convert2fpr/findbugs/fvdl.xsl");
-        availableFormats.put("findbugs", "com/gdssecurity/convert2fpr/findbugs-fast/fvdl.xsl");
+        availableFormats.put("findbugs-fast", "com/gdssecurity/convert2fpr/findbugs-fast/fvdl.xsl");
         availableFormats.put("eslint", "com/gdssecurity/convert2fpr/eslint/fvdl.xsl");
+        availableFormats.put("pmd", "com/gdssecurity/convert2fpr/pmd/fvdl.xsl");
 
 		//add an entry for the correspondent finding descriptions file
 		availableMessages.put("findbugs", "com/gdssecurity/convert2fpr/findbugs/messages.xml");
-        availableMessages.put("findbugs-fast", "com/gdssecurity/convert2fpr/findbugs-fast/messages.xml");
-
+        availableMessages.put("findbugs-fast", "com/gdssecurity/convert2fpr/findbugs/messages.xml");
 	}
 
 	private void run(String format, String sourceFile, String messages){
@@ -57,7 +58,7 @@ public class GDSConverter {
 			}
 			try {
 				System.out.println("Processing...");
-				outputAuditFile = transformer.applyTransformation(sourceFile, XslPath, messagesPath);
+				outputAuditFile = transformer.applyTransformation(sourceFile, XslPath, messagesPath, format);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
