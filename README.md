@@ -16,3 +16,4 @@ Available formats:
 - findbugs
 - findbug-fast (converts security issues only)
 - eslint 
+- pmd
